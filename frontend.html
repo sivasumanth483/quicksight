@@ -1,0 +1,38 @@
+@model Smartbots.Models.quicksightinfo
+@{
+ViewBag.Title = "Analytics";
+ViewBag.access = "BOT";
+Layout = "~/Views/Shared/_newLayout.cshtml";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        embedDashboard();
+    });
+
+    function embedDashboard() {
+        var containerDiv = document.getElementById("dashboardContainer");
+        var params = {
+            url: $("#hiddenURl").val(),
+            container: containerDiv,
+            parameters: {
+                'dynamicParam': 'Bot1'
+            },
+            height: "1200px",
+            width: "100%"
+        };
+        var dashboard = QuickSightEmbedding.embedDashboard(params);
+        dashboard.on('error', function () {});
+        dashboard.on('load', function () {});
+        dashboard.setParameters({
+            country: 'Canada'
+        });
+    }
+</script>
+
+
+
+<input type="hidden" id="hiddenURl" value="@Model.EmbedUrl">
+<div id="dashboardContainer" style="margin-bottom:100px;"></div>
+
+@Html.Partial("~/Views/PartialViews/Bots/_testWindow.cshtml")
