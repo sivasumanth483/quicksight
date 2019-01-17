@@ -58,7 +58,7 @@ this.getQuickSightUrl = function (idToken, username, callback) {
                         // console.log("Register User :::::::::::::::: ", data1);
                         quicksight.getDashboardEmbedUrl({
                                 AwsAccountId: "XXXXXXXXXX",
-                                DashboardId: "XXXXXXX", //"960b5281-7018-4030-a39d-a08a07303b29",
+                                DashboardId: "XXXXXXX",
                                 IdentityType: "IAM",
                                 ResetDisabled: true,
                                 SessionLifetimeInMinutes: 400,
